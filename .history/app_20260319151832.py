@@ -41,7 +41,6 @@ def logout():
    return jsonify({"message": "Logout realizado com sucesso!"})
    
 @app.route('/user', methods=["POST"])
-@login_required
 def create_user():
   data = request.json
   username = data.get("username")
@@ -49,8 +48,7 @@ def create_user():
 
   if username and password:
     user = User(username=username, password=password)
-    db.session.add(user)
-    db.session.commit()
+    db.session
     return jsonify({"message": "Usuário cadastrado com sucesso!"})
 
   return jsonify({"message": "Dados inválidos"}), 400
