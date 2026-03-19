@@ -11,11 +11,6 @@ login_manager = LoginManager()
 db.init_app(app)
 login_manager.init_app(app)
 
-login_manager.login_view = 'login'
-
-@login_manager.user_loader
-def load_user(user_id):
-   return User.query.get(user_id)
 
 @app.route('/login', methods=["POST"])
 def login():
@@ -29,7 +24,7 @@ def login():
     
     if user and user.password == password:
         login_user(user)
-        print(current_user.is_authenticated)
+        print(current_user)
         return jsonify({"message": "Autenticação realizada com sucesso!"})
 
   return jsonify({"message": "Credenciais inválidas"}), 400
