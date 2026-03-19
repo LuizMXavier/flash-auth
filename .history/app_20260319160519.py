@@ -86,8 +86,7 @@ def delete_user(id_user):
       return jsonify({"message": "Deleção não permitida"}), 403
         
    if user:
-      db.session.delete(user)
-      db.session.commit()
+      db.session
       return jsonify({"message": f"Usuário {id_user} deletado com sucesso"})
 
    return jsonify({"message": "Usuário não encontrado"}), 404
