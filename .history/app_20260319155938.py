@@ -84,8 +84,6 @@ def delete_user(id_user):
    if user:
       return jsonify({"message": f"Usuário {id_user} deletado com sucesso"})
 
-   return jsonify({"message": "Usuário não encontrado"}), 404
-
-
+    return jsonify({"message": "Usuário não encontrado"}), 404
 if __name__ == '__main__':
     app.run(debug=True)

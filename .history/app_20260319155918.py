@@ -82,10 +82,7 @@ def update_user(id_user):
 def delete_user(id_user):
    user = User.query.get(id_user)
    if user:
-      return jsonify({"message": f"Usuário {id_user} deletado com sucesso"})
-
-   return jsonify({"message": "Usuário não encontrado"}), 404
-
+      return jsonify({"message": f"Usuário {id_user} atualizado com sucesso"})
 
 if __name__ == '__main__':
     app.run(debug=True)
